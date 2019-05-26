@@ -137,8 +137,9 @@ now it's time to consider integral gain (Ki).
 - a lot better, but cornering response needs improvement, but I am okay with this set up. 
 
 
-
-
+## Remark
+- I spent too much time to fix compiler issue on workspace [PID workspace issue](https://knowledge.udacity.com/questions/35969)
+- I noticed it's unstable during cornering with step #16 PID gain, it can be improved with further adjustment. 
 
 
 
