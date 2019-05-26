@@ -19,11 +19,26 @@ Udacity's PID course material (all snapshots appeared in this section are from t
 
 @ main.cpp
 ```
-  //TODO
+  main body code to call out UpdateError/TotalError functions
           pid.UpdateError(cte); //calling UpdateError function
           steer_value = pid.TotalError();  //calling TotalError function
           // DEBUG
           std::cout << "CTE: " << cte << " Steering Value: " << steer_value 
+```
+```
+// set up initializer
+int main(int argc, char *argv[]) {
+  uWS::Hub h;
+
+  PID pid;
+  /**
+   * TODO: Initialize the pid variable.
+   */
+  double init_Kp = atof(argv[1]);
+  double init_Ki = atof(argv[2]);
+  double init_Kd = atof(argv[3]);
+  pid.Init(init_Kp,init_Ki,init_Kd);
+
 ```
 
 @PID.cpp
