@@ -107,27 +107,34 @@ double PID::TotalError() {
 now it's time to consider integral gain (Ki). 
 
 7. [Kp= -0.02, Ki = -5, Kd = -50] : 
-- hmm. After adding Ki,  the vehicle at starting point ran out of path and circled around. Ki is wrong value... 
+- Hmm. After adding Ki,  the vehicle at starting point ran out of path and circled around. Ki is wrong value... 
 
 8. [Kp= -0.02, Ki = -0.5, Kd = -50] : 
-- still doesn't look right as the vehicle circles around at the start, but at least no oscillation at the steering axle. 
+- Still doesn't look right as the vehicle circles around at the start, but at least no oscillation at the steering axle. 
 
 9. [Kp= -0.02, Ki = -0.05, Kd = -50] : 
 - The simulation vehicle follows the track... I noticed the less oscillation on the front steering wheels comparing to step 6. It seems overshoot driven by Kd seems too high so Ki may not be able to help. Better to cut down Kd. 
 
-10. [Kp= -0.01, Ki = -0.05, Kd = -25]: Kd in half, and Kp in half while holding Ki. a bit better, but I see the oscillation may not be solely driven by overshoot (mainly Kd). Fundamentally, proportionalgain seems too high. needs to  cut down Kp further, and leave Kd as is to see the performance.  
+10. [Kp= -0.01, Ki = -0.05, Kd = -25]: 
+- Kd in half, and Kp in half while holding Ki. a bit better, but I see the oscillation may not be solely driven by overshoot (mainly Kd). Fundamentally, proportionalgain seems too high. needs to  cut down Kp further, and leave Kd as is to see the performance.  
 
-11. [Kp= -0.005, Ki = -0.05, Kd = -25]: Noticed a bit better performance. Therefore, stick to Kp as is. Try to cut down Kd as there looks like overshoot. 
+11. [Kp= -0.005, Ki = -0.05, Kd = -25]: 
+- Noticed a bit better performance. Therefore, stick to Kp as is. Try to cut down Kd as there looks like overshoot. 
 
-12. [Kp= -0.005, Ki = -0.05, Kd = -20]: a bit better than step 11, but still noticing bit of overshoot on the steering axle. I need to correct the vehicle trajectory issue (zigzag behaviour, it's related to Ki, I believe). 
+12. [Kp= -0.005, Ki = -0.05, Kd = -20]:
+- a bit better than step 11, but still noticing bit of overshoot on the steering axle. I need to correct the vehicle trajectory issue (zigzag behaviour, it's related to Ki, I believe). 
 
-13. [Kp= -0.005, Ki = -0.025, Kd = -15]:getting worse
+13. [Kp= -0.005, Ki = -0.025, Kd = -15]:
+- getting worse
 
-14. [Kp= -0.005, Ki = -0.1, Kd = -20]: a lot more zigzagging. 
+14. [Kp= -0.005, Ki = -0.1, Kd = -20]:
+- a lot more zigzagging. 
 
-15. [Kp= -0.005, Ki = -0.01, Kd = -20]: a lot less zigzagging (stick to Ki as is), but there's still oscillation on the front steering axle. Kp/Kd needs adjustment. 
+15. [Kp= -0.005, Ki = -0.01, Kd = -20]: 
+- a lot less zigzagging (stick to Ki as is), but there's still oscillation on the front steering axle. Kp/Kd needs adjustment. 
 
-16. [Kp= -0.002, Ki = -0.01, Kd = -10]: a lot better, but cornering response needs improvement, but I am okay with this set up. 
+16. [Kp= -0.002, Ki = -0.01, Kd = -10]: 
+- a lot better, but cornering response needs improvement, but I am okay with this set up. 
 
 
 
