@@ -1,18 +1,19 @@
 I see why the reviewer faced the issue to run simulation. 
 Basically, PID code uses argc,argv command to take PID gains. 
 Therefore, I suggested to put the following on workspace command line:
-```./pid -0.002 -0.01 -10 
+```
+./pid -0.05 0 -2.5
 ``` 
 it means 
 ```
-Kp (proportional gain): -0.002 
-Ki (integral gain)    : -0.01 
-Kd (derivative gain)  : -10
+Kp (proportional gain): -0.05
+Ki (integral gain)    : 0 
+Kd (derivative gain)  : -2.5
 ```
 
 ## The important thing to run Simulation on workspace environment:
 ```
-./pid -0.002 -0.01 -10
+./pid -0.05 0 -2.5
 ```
 - In this example, Kp:-0.002, Ki:-0.01, Kd:-10
 
@@ -167,8 +168,13 @@ now it's time to consider integral gain (Ki).
 - a lot less zigzagging (stick to Ki as is), but there's still oscillation on the front steering axle. Kp/Kd needs adjustment. 
 
 16. [Kp= -0.002, Ki = -0.01, Kd = -10]: 
-- a lot better, but cornering response needs improvement, but I am okay with this set up. 
+- a lot better, but cornering response needs improvement as it goes out of path.... return back to step 15. how to mitigate oscillation overshoot on the front axle? cut down more on Kd while removing Ki and increasing Kp... 
 
+17. [Kp= -0.05, Ki = 0, Kd = -2.5]: this gives better result, no out of path, a lot less zigzagging, and oscillation on the front axle. 
+
+## submission video:
+
+[youtube video link](https://youtu.be/xv-AnkbR_LM)
 
 ## Remark
 - I spent too much time to fix compiler issue on workspace. (posted a solution here: [PID workspace issue](https://knowledge.udacity.com/questions/35969))
