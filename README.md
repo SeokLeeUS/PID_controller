@@ -1,8 +1,14 @@
 I see why the reviewer faced the issue to run simulation. 
 Basically, PID code uses argc,argv command to take PID gains. 
-Therefore, I suggested to put ./pid -0.002 -0.01 -10 on the command prompt in workspace. 
-it means Kp (proportional gain) = -0.002, Ki (integral gain): -0.01, Kd(derivative gain): -10. 
-
+Therefore, I suggested to put the following on workspace command line:
+```./pid -0.002 -0.01 -10 
+``` 
+it means 
+```
+Kp (proportional gain): -0.002 
+Ki (integral gain)    : -0.01 
+Kd (derivative gain)  : -10
+```
 
 ## The important thing to run Simulation on workspace environment:
 ```
