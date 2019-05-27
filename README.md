@@ -1,6 +1,6 @@
 ## remark
 
-[youtube link] (<iframe width="560" height="315" src="https://www.youtube.com/embed/xv-AnkbR_LM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>)
+[youtube video link](https://youtu.be/xv-AnkbR_LM)
 
 I see why the reviewer faced the issue to run simulation. 
 Basically, PID code uses argc,argv command to take PID gains. 
