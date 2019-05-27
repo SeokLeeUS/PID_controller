@@ -1,3 +1,24 @@
+## Things to make sure to run on workspace:
+```
+./pid -0.002 -0.01 -10
+```
+- In this example, Kp:-0.002, Ki:-0.01, Kd:-10
+
+This is because of argc,argv command in main function to take PID gain on command prompt:
+```
+int main(int argc, char *argv[]) {
+  uWS::Hub h;
+
+  PID pid;
+  /**
+   * TODO: Initialize the pid variable.
+   */
+  double init_Kp = atof(argv[1]);
+  double init_Ki = atof(argv[2]);
+  double init_Kd = atof(argv[3]);
+  pid.Init(init_Kp,init_Ki,init_Kd);
+```
+
 # PID_controller
 Udacity self-driving car #8 project
 
