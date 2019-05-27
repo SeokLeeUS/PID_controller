@@ -166,8 +166,68 @@ now it's time to consider integral gain (Ki).
 
 ## Remark
 - I spent too much time to fix compiler issue on workspace. (posted a solution here: [PID workspace issue](https://knowledge.udacity.com/questions/35969))
-- I tried to run twiddle to adjustment parmaeters while running simulation, but it wasn't successful. I need to revisit twiddle code to see what went wrong. Instead, I manually tuned the gain in an order (p gain first, d gain, introduce i gain, then fine tune bit by bit by looking at the performance of the vehicle.)
+
 - I noticed it's unstable during cornering with step #16 PID gain, it can be improved with further adjustment. 
+
+- I tried to run twiddle to adjustment parmaeters while running simulation, but it wasn't successful. I need to revisit twiddle code to see what went wrong. Instead, I manually tuned the gain in an order (p gain first, d gain, introduce i gain, then fine tune bit by bit by looking at the performance of the vehicle.)
+```
+double PID::twiddle(double cte)
+{
+  //double sum_pid = this->Kp + this->Ki + this->Kd;
+  double dp_p = 1;
+  double dp_i = 1;
+  double dp_d = 1;
+  double sum_dp = dp_p + dp_i + dp_d;
+  //double total_err;
+  double best_err;
+  double steer_value;
+  int it = 1;
+  while (sum_dp > 0.01)
+  {
+    this->Kp += dp_p;
+    this->Ki += dp_i;
+    this->Kd += dp_d;
+    UpdateError(cte);
+    steer_value =  TotalError();
+    if (cte < p_error)
+    {
+      best_err = cte;
+      dp_p *= 1.1;
+      dp_i *= 1.1;
+      dp_d *= 1.1;
+    }
+    else
+    {
+      dp_p -= 2 * dp_p;
+      dp_i -= 2 * dp_i;
+      dp_d -= 2 * dp_d;
+      
+      UpdateError(cte);
+      steer_value = TotalError();
+      if (cte < best_err)
+      {
+        best_err = cte;
+        dp_p *= 1.1;
+        dp_i *= 1.1;
+        dp_d *= 1.1;
+      }
+      else
+      {
+        this->Kp += dp_p;
+        this->Ki += dp_i;
+        this->Kd += dp_d;
+        dp_p *= 0.9;
+        dp_i *= 0.9;
+        dp_d *= 0.9;
+      }
+    }
+  }
+  it++;
+  std::cout<<it<<endl;
+  return steer_value;
+}
+
+```
 
 
 
