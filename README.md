@@ -17,9 +17,10 @@ Kd (derivative gain)  : -2.5
 
 ## The important thing to run Simulation on workspace environment:
 ```
-./pid -0.05 0 -2.5
+// example
+./pid Kp Ki Kd
 ```
-- In this example, Kp:-0.002, Ki:-0.01, Kd:-10
+- In this example, Kp:prportional gain, Ki: integral gain, Kd: derivative gain 
 
 This is because of argc,argv command in main function to take PID gain on command prompt:
 ```
