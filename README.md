@@ -1,4 +1,7 @@
-## remark
+# PID controller (Udacity self-driving car #8 project)
+Engage a feedback controller to make the vehicle follow the given path. 
+
+## Remark
 
 [youtube video link](https://youtu.be/xv-AnkbR_LM)
 
@@ -15,7 +18,7 @@ Ki (integral gain)    : 0
 Kd (derivative gain)  : -2.5
 ```
 
-## The important thing to run Simulation on workspace environment:
+## The important thing to run simulation on workspace environment:
 ```
 // example
 ./pid Kp Ki Kd
@@ -37,8 +40,7 @@ int main(int argc, char *argv[]) {
   pid.Init(init_Kp,init_Ki,init_Kd);
 ```
 
-# PID_controller
-Udacity self-driving car #8 project
+
 
 ## Reference:
 -Udacity's PID walkthrough session: https://www.youtube.com/watch?v=YamBuzDjrs8&feature=youtu.be
