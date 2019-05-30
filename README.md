@@ -183,8 +183,8 @@ now it's time to consider integral gain (Ki).
 
 [youtube video link](https://youtu.be/xv-AnkbR_LM)
 
-## Remark
-- I spent too much time to fix compiler issue on workspace. (posted a solution here: [PID workspace issue](https://knowledge.udacity.com/questions/35969))
+## Final notes
+- I spent too much time to fix compiler issue on Udacity's workspace. (posted a solution here: [PID workspace issue](https://knowledge.udacity.com/questions/35969))
 
 - I noticed it's unstable during cornering with step #16 PID gain, it can be improved with further adjustment. 
 
